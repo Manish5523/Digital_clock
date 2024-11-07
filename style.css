@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.spinner{
+    border: 10px solid rgba(255, 255, 255, 0.5);
+    height: 200px;
+    width: 200px;
+    border-left: 30px solid #03C23D;
+    border-radius: 50%;
+    animation: loading 0.8s linear infinite;
+    position: relative;
+    box-shadow: -40px 0px 500px 1px #03C23D, 40px 0px 500px 1px #3f3f3f ;
+}
+
+body{
+    font-family: "Poppins", serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1f1f1f;
+}
+
+.clock-div{
+    opacity: 0;
+    user-select: none;
+    background: #1f1f1f;
+    border: 1px solid #333;
+    width: 700px;
+    height: 300px;
+    padding: 30px;
+    border-radius: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 200px;
+    font-weight: 600;
+    position: relative;
+}
+
+.clock-div::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(90deg, #0D6BFB, #358FDE, #9914B8, #F7BD78);
+    background-size: 500%;
+    background-position: 0 50%;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    z-index: -1;
+    filter: blur(30px);
+    animation: glow-it 10s ease infinite;
+}
+
+.clock-div > *{
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.right-box{
+    font-size: 30px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hours{
+    background: linear-gradient(180deg, #03C23D,#076693);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dots{
+    color: #929292;
+}
+
+.minutes{
+    background: linear-gradient(180deg, #9F4BAB, #FC8531);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.period{
+    background: linear-gradient(180deg, #FA3426, #33559C);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.seconds{
+    background: linear-gradient(180deg, #D6B6F1,#16E0E9);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes glow-it {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+
+@keyframes loading {
+    from{
+        rotate: 0deg;
+    }
+    to{
+        rotate: 360deg;
+    }
+}
